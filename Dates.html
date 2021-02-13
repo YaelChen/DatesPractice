@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>JavaScript</h2>
+
+    <p>Answers for <a href="https://github.com/juanmaguitar/exercises-javascript/blob/master/12-exercises-date/README.md#dates">juanmaguitar's github</a> questions:<br />---</p>
+
+    <p id="a">1. a date</p>
+    <p id="b">2. is dates equal?</p>
+    <p id="c">3. is it a date?</p>
+    <p id="d">4. current date</p>
+    <p id="e">5. days count in a month</p>
+    <p id="f">6. month from a date</p>
+    <p id="g">7. is it weekend?</p>
+    <p id="h">8. days between dates</p>
+    <p id="i">9. minutes to hours</p>
+    <p id="j">10. </p>
+
+    <script>
+        var isDate = function(input) {
+            if (Object.prototype.toString.call(input) === "[object Date]") {
+                return true;
+            };
+            return false;
+        };
+
+        var dateOnly = function(date) {
+            return date.getMonth() + 1 + "/" + date.getDate() + "/" + date.getFullYear();
+        };
+
+        var countDays = function(date) {
+            var month = prompt("What month do you want to count days in? (Type first 3 CAPS letters)");
+            var year = prompt(`${month} of what year?`);
+            if (month == "JAN") {
+                var monthNum = 1;
+            };
+            if (month == "FEB") {
+                var monthNum = 2;
+            };
+            if (month == "MAR") {
+                var monthNum = 3;
+            };
+            if (month == "APR") {
+                var monthNum = 4;
+            };
+            if (month == "MAY") {
+                var monthNum = 5;
+            };
+            if (month == "JUN") {
+                var monthNum = 6;
+            };
+            if (month == "JUL") {
+                var monthNum = 7;
+            };
+            if (month == "AUG") {
+                var monthNum = 8;
+            };
+            if (month == "SEP") {
+                var monthNum = 9;
+            };
+            if (month == "OCT") {
+                var monthNum = 10;
+            };
+            if (month == "NOV") {
+                var monthNum = 11;
+            };
+            if (month == "DEC") {
+                var monthNum = 12;
+            };
+
+            var count = new Date(year, monthNum, 0).getDate()
+            return `${month} ${year} has ${count} days`
+        };
+
+        var monthName = function(date) {
+            if (date.getMonth() == 0) {
+                var month_name = "January";
+            };
+            if (date.getMonth() == 1) {
+                var month_name = "February";
+            };
+            if (date.getMonth() == 2) {
+                var month_name = "March";
+            };
+            if (date.getMonth() == 3) {
+                var month_name = "April";
+            };
+            if (date.getMonth() == 4) {
+                var month_name = "May";
+            };
+            if (date.getMonth() == 5) {
+                var month_name = "June";
+            };
+            if (date.getMonth() == 6) {
+                var month_name = "July";
+            };
+            if (date.getMonth() == 7) {
+                var month_name = "August";
+            };
+            if (date.getMonth() == 8) {
+                var month_name = "September";
+            };
+            if (date.getMonth() == 9) {
+                var month_name = "October";
+            };
+            if (date.getMonth() == 10) {
+                var month_name = "November";
+            };
+            if (date.getMonth() == 11) {
+                var month_name = "December";
+            };
+
+            return month_name;
+        };
+
+        var isWeekend = function(date) {
+            if (date.getDay() < 5) {
+                return "is not a weekend (in Israel)";
+            };
+            return "is a weekend (in Israel)";
+        };
+
+        var minsToHours = function(num) {
+            var hours = /*math.floor*/ (num / 60);
+            var mins = num % 60;
+            return `${num} minutes are ${hours} hours and ${mins} minutes`;
+        };
+
+        var x = new Date().getTime();
+        var y = new Date(2021, 0, 15, 17);
+
+
+        document.getElementById("a").innerHTML = y;
+        document.getElementById("b").innerHTML = x === y.getTime();
+        document.getElementById("c").innerHTML = isDate(y);
+        document.getElementById("d").innerHTML = dateOnly(new Date);
+        document.getElementById("e").innerHTML = countDays();
+        document.getElementById("f").innerHTML = monthName(y);
+        document.getElementById("g").innerHTML = isWeekend(y);
+        document.getElementById("h").innerHTML = /*math.floor*/ ((x - y) / 86400000);
+        document.getElementById("i").innerHTML = minsToHours(210);
+        document.getElementById("j").innerHTML = (x - y) / 31557600000;
+    </script>
+
+</body>
+
+</html>
